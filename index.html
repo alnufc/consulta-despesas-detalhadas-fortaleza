@@ -9,7 +9,59 @@
 </head>
 <body>
 
-  <h1  >Despesas Detalhadas – Prefeitura de Fortaleza</h1>
+  <header>
+    <ul>
+      <li><a href="#card-section">Cards</a></li>
+      <li><a href="#tabelaCSV">Tabela</a></li>
+      <li><a href="#termos-section">Termos</a></li>
+    </ul>
+  </header>
+
+  <h1 id="h1-principal" >Despesas Detalhadas – Prefeitura de Fortaleza</h1>
+
+  <section class="card-section">
+    <div id="card-totalGasto">
+      <h2>Total Gasto</h2>
+      <p id="valor-totalGasto"></p>
+    </div>
+    <div id="card-totalAnulado">
+      <h2>Total Anulado</h2>
+      <p id="valor-total-anulado"></p>
+    </div>
+    <div id="card-quatidadeRegistros">
+      <h2>Quantidade de Registros</h2>
+      <p id="valor-quantidadeRegistros"></p>
+    </div>
+    <div id="card-valorMedio">
+    <h2>Valor Médio</h2>
+    <p id="valor-medio"></p>
+</div>
+
+  </section>
+
+  <section class="filtros-section">
+
+    <div id="divfiltroValoresIndefinidos">
+      <label for="filtroValoresIndefinidos">Filtrar valores indefínidos</label>
+      <input type="checkbox" name="filtrar valores indefinidos" id="filtroValoresIndefinidos">
+    </div>
+    <div id="divfiltroValorMinimo">
+      <label for="filtroValorMinimo">Definir Valor minimo</label>
+      <input type="number" name="filtrar valor minimo" id="filtroValorMinimo">
+    </div>
+    <div id="divfiltroValorMáximo">
+      <label for="filtroValorMaximo">Definir Valor Máximo</label>
+      <input type="number" name="filtrar valor maximo" id="filtroValorMaximo">
+    </div>
+    <div id="divfiltroCPF/CNPJ">
+      <label for="filtroCPF/CNPJ">Escolher tipo de Favorecido</label>
+      <select name="filtroCPF/CNPJ" class="filtroCPF/CNPJ">
+        <option value="AMBOS">Ambos</option>
+        <option value="CPF">CPF</option>
+        <option value="CNPJ">CNPJ</option>
+      </select>
+    </div>
+  </section>
 
 <table id="tabelaCSV">
     <thead></thead>
@@ -21,6 +73,12 @@
     <span id="pageInfo"></span>
     <button id="next">Próximo</button>
 </div>
+
+<footer>
+  <section id="termos-section">
+      <p>Todos os direitos reservados 2026</p>
+  </section>
+</footer>
 
 
 

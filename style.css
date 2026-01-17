@@ -1,25 +1,41 @@
-
+:root
+{
+    /* valores de cores vão aq exemplo:*/
+    --azul: #3b39cc;
+}
 
 body {
       
-    }
+}
 
-    table {
+#h1-principal
+{
+    
+}
+
+table {
       
-    }
+}
 
-    thead {
+
+
+thead {
       
-    }
+}
 
-    th, td {
+th, td {
         
-    }
+}
 
-    tr:nth-child(even) {
+tr:nth-child(even) {
       
-    }
+}
 
-    .valor {
+.valor {
       
-    }
+}
+
+footer
+{
+
+}
