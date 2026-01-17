@@ -1,41 +1,287 @@
-:root
-{
-    /* valores de cores vão aq exemplo:*/
+:root {
     --azul: #3b39cc;
+    --cinza-claro: #f2f2f2;
+    --cinza-medio: #d9d9d9;
+    --cinza-escuro: #555;
+    --branco: #ffffff;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-      
-}
-
-#h1-principal
-{
-    
-}
-
-table {
-      
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cinza-claro);
+    color: #222;
+    line-height: 1.4;
 }
 
 
+
+header {
+    background-color: var(--azul);
+    padding: 12px 24px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+header a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+
+
+#h1-principal {
+    text-align: center;
+    margin: 24px auto;
+    font-size: 1.8rem;
+}
+
+
+
+.card-section {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 0 16px;
+}
+
+.card-section > div {
+    background-color: var(--branco);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card-section h2 {
+    font-size: 1rem;
+    color: var(--cinza-escuro);
+    margin-bottom: 8px;
+}
+
+.card-section p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--azul);
+}
+
+
+
+.filtros-section {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 16px;
+    background-color: var(--branco);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.filtros-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filtros-section label {
+    font-size: 0.85rem;
+    color: var(--cinza-escuro);
+}
+
+.filtros-section input,
+.filtros-section select {
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--cinza-medio);
+}
+
+
+
+#tabelaCSV {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: var(--branco);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 
 thead {
-      
+    background-color: var(--azul);
+    color: var(--branco);
 }
 
 th, td {
-        
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--cinza-medio);
+    text-align: left;
+}
+
+th {
+    cursor: pointer;
+    user-select: none;
 }
 
 tr:nth-child(even) {
-      
+    background-color: #f9f9f9;
 }
 
-.valor {
-      
+
+
+#pagination {
+    max-width: 1200px;
+    margin: 16px auto 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
-footer
-{
+#pagination button {
+    padding: 6px 12px;
+    border: none;
+    background-color: var(--azul);
+    color: var(--branco);
+    border-radius: 4px;
+    cursor: pointer;
+}
 
+#pagination button:disabled {
+    background-color: var(--cinza-medio);
+    cursor: not-allowed;
+}
+
+
+
+footer {
+    background-color: var(--azul);
+    color: var(--branco);
+    text-align: center;
+    padding: 16px;
+    margin-top: 32px;
+}
+
+#termos-section p {
+    font-size: 0.85rem;
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
+}
+
+tbody tr:hover {
+    background-color: #eef0ff;
+}
+
+/* ================= MODO ESCURO ================= */
+
+body.dark {
+    background-color: #121212;
+    color: #eaeaea;
+}
+
+body.dark header,
+body.dark footer {
+    background-color: #1f1f1f;
+}
+
+body.dark .card-section > div,
+body.dark .filtros-section,
+body.dark #tabelaCSV {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+}
+
+body.dark thead {
+    background-color: #2b2a8f;
+}
+
+body.dark tr:nth-child(even) {
+    background-color: #252525;
+}
+
+/* hover da tabela NO MODO ESCURO */
+body.dark tbody tr:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* botão modo escuro */
+#toggle-theme {
+    background-color: var(--branco);
+    color: var(--azul);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body.dark #toggle-theme {
+    background-color: #333;
+    color: #ffffff;
+}
+
+/* textos dos cards no modo escuro */
+body.dark .card-section h2 {
+    color: #bdbdbd;
+}
+
+body.dark .card-section p {
+    color: #6c7bff; /* azul mais claro pra destacar */
+}
+
+#termos-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.link-prefeitura {
+    font-size: 0.8rem;
+    color: #dcdcff;
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.link-prefeitura:hover {
+    opacity: 1;
+}
+
+/* modo escuro */
+body.dark .link-prefeitura {
+    color: #bfc2ff;
+}
+
+
+/* cabeçalho da tabela fixo */
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: var(--azul);
 }

@@ -303,3 +303,13 @@ document.querySelector(".filtroCPF\\/CNPJ")
 
 
 carregarCSV();
+
+const btnTheme = document.getElementById("toggle-theme");
+
+if (btnTheme) {
+    btnTheme.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+    });
+}
+
+
