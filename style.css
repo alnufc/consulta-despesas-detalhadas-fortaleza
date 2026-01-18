@@ -18,53 +18,86 @@ body {
     background-color: var(--cinza-claro);
     color: #222;
     line-height: 1.4;
+
+
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+
+
+header,
+footer,
+.card-section h2,
+.card-section>div,
+.filtros-section,
+#tabelaCSV,
+thead,
+tbody tr,
+button,
+input,
+#pagination,
+select {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 
 
 header {
+    width: 100%;
     background-color: var(--azul);
     padding: 12px 24px;
     position: sticky;
     top: 0;
-    z-index: 5;
+    display: flex;
+
 }
+
 
 header ul {
     list-style: none;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    gap: 24px;
+    justify-content: space-between;
+
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.nomes {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    align-items: center;
-}
+/*botoes*/
+header a {
 
-.nomes li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+
     padding: 6px 12px;
     border: 1px solid transparent;
     border-radius: 4px;
     transition: background-color .3s, color .3s, border-color .3s;
 }
 
-.nomes li a:hover {
+
+header a:hover {
+    text-decoration: underline;
     background-color: var(--branco);
     color: var(--azul);
 }
 
 
-header a {
-    color: var(--branco);
-    text-decoration: none;
-    font-weight: bold;
-}
 
-header a:hover {
-    text-decoration: underline;
+
+.nomes {
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -155,6 +188,7 @@ header a:hover {
 
 
 
+
 #tabelaCSV {
     width: 100%;
 
@@ -166,11 +200,6 @@ header a:hover {
 
 }
 
-thead {
-    width: 100%;
-    background-color: var(--azul);
-    color: var(--branco);
-}
 
 
 
@@ -178,9 +207,9 @@ thead {
 
 
 .tabela-wrapper {
+    border-radius: 20px;
     width: 100%;
     overflow-x: auto;
-    /* ⬅️ scroll só da tabela */
 }
 
 
@@ -192,7 +221,7 @@ thead {
 
 .linha-vertical {
     border-left: 2px solid var(--cinza-medio);
-    /* Adiciona borda esquerda na div como ser fosse uma linha.*/
+    border-radius: 1rem;
     box-sizing: border-box;
 }
 
@@ -200,9 +229,11 @@ th,
 td {
     padding: 8px 10px;
     font-size: 0.85rem;
-    border-bottom: 1px solid var(--cinza-medio);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     text-align: left;
+    border-left: 1px solid rgba(0, 0, 0, 0.205);
 }
+
 
 th {
     cursor: pointer;
@@ -212,6 +243,22 @@ th {
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+
+thead {
+
+    justify-items: center;
+    height: 100px;
+    width: 100%;
+    background-color: var(--azul);
+    color: var(--branco);
+}
+
+thead th, tbody td{ 
+     
+}
+
+
 
 
 
@@ -243,8 +290,9 @@ tr:nth-child(even) {
 #pagination button:not(:disabled):hover {
     background-color: var(--branco);
     color: var(--azul);
-    border-color: var(--azul); 
+    border-color: var(--azul);
 }
+
 
 
 
@@ -272,12 +320,20 @@ tbody tr:hover {
     background-color: #eef0ff;
 }
 
+
+
+
+
+
+
+
 /* ================= MODO ESCURO ================= */
 
 body.dark {
     background-color: #121212;
     color: #eaeaea;
 }
+
 
 body.dark header,
 body.dark footer {
@@ -303,7 +359,7 @@ body.dark .card-section h2 {
 
 
 
-#pagination button:disabled {
+body.dark #pagination button:disabled {
     background-color: var(--cinza-escuro);
     color: #1f1f1f;
 }
@@ -311,6 +367,13 @@ body.dark .card-section h2 {
 body.dark thead {
     background-color: #2b2a8f;
 }
+
+
+body.dark thead th, body.dark tbody td{ 
+    border-left: 1px solid rgba(255, 255, 255, 0.151); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.151);
+}
+
 
 body.dark tr:nth-child(even) {
     background-color: #252525;
@@ -327,9 +390,12 @@ body.dark tbody tr:hover {
 
 /* botão modo escuro */
 #toggle-theme {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
     background-color: var(--branco);
     color: var(--azul);
-    border: 1px solid transparent; 
+    border: 1px solid transparent;
     padding: 6px 12px;
     border-radius: 4px;
     font-weight: bold;
@@ -341,7 +407,7 @@ body.dark tbody tr:hover {
 #toggle-theme:hover {
     background-color: var(--azul);
     color: var(--branco);
-    border-color: var(--branco); 
+    border-color: var(--branco);
 }
 
 body.dark #toggle-theme:hover {
@@ -396,10 +462,15 @@ body.dark .link-prefeitura {
 }
 
 
-/* cabeçalho da tabela fixo
+
+
+
+
+
+/* cabeçalho da tabela fixo */
 thead th {}
 
- */
+
 
 @media (max-width: 1024px) {
     .pai {
@@ -421,7 +492,51 @@ thead th {}
         gap: 16px;
     }
 
+    #toggle-theme {
+        align-self: center;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .linha-vertical {
         display: none;
     }
+
+    .nomes {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+.moon-outline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+    transform: scale(0.95);
+}
+
+.moon-fill {
+    fill: currentColor;
+    transform: scale(1);
+}
+
+.moon-fill {
+    display: none;
+}
+
+body.dark .moon-outline {
+    display: none;
+}
+
+body.dark .moon-fill {
+    display: block;
 }
