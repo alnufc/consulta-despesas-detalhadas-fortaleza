@@ -25,14 +25,37 @@ body {
 header {
     background-color: var(--azul);
     padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 header ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 24px;
 }
+
+.nomes {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+}
+
+.nomes li a {
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color .3s, color .3s, border-color .3s;
+}
+
+.nomes li a:hover {
+    background-color: var(--branco);
+    color: var(--azul);
+}
+
 
 header a {
     color: var(--branco);
@@ -52,26 +75,42 @@ header a:hover {
     font-size: 1.8rem;
 }
 
+.pai {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 
 .card-section {
-    max-width: 1200px;
-    margin: 0 auto 24px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    padding: 0 16px;
+    width: 100%;
 }
 
-.card-section > div {
+
+.card-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+
+.card-section>div {
+    width: 100%;
     background-color: var(--branco);
     border-radius: 8px;
-    padding: 16px;
+    padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px #00000014;
 }
 
 .card-section h2 {
+    padding: 10px;
+    border-radius: 0.5rem;
+    background-color: #f8f8f8;
     font-size: 1rem;
     color: var(--cinza-escuro);
     margin-bottom: 8px;
@@ -86,14 +125,14 @@ header a:hover {
 
 
 .filtros-section {
-    max-width: 1200px;
-    margin: 0 auto 24px;
-    padding: 16px;
     background-color: var(--branco);
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     border-radius: 8px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
 }
 
 .filtros-section div {
@@ -117,20 +156,48 @@ header a:hover {
 
 
 #tabelaCSV {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+
     border-collapse: collapse;
     background-color: var(--branco);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    min-width: 900px;
+    border-radius: 8px;
+
 }
 
 thead {
+    width: 100%;
     background-color: var(--azul);
     color: var(--branco);
 }
 
-th, td {
+
+
+
+
+
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    /* ⬅️ scroll só da tabela */
+}
+
+
+
+
+
+
+
+
+.linha-vertical {
+    border-left: 2px solid var(--cinza-medio);
+    /* Adiciona borda esquerda na div como ser fosse uma linha.*/
+    box-sizing: border-box;
+}
+
+th,
+td {
     padding: 8px 10px;
     font-size: 0.85rem;
     border-bottom: 1px solid var(--cinza-medio);
@@ -159,17 +226,26 @@ tr:nth-child(even) {
 
 #pagination button {
     padding: 6px 12px;
-    border: none;
+    border: 1px solid transparent;
     background-color: var(--azul);
     color: var(--branco);
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color .3s, color .3s, border-color .3s;
 }
 
 #pagination button:disabled {
     background-color: var(--cinza-medio);
     cursor: not-allowed;
+    transition: none;
 }
+
+#pagination button:not(:disabled):hover {
+    background-color: var(--branco);
+    color: var(--azul);
+    border-color: var(--azul); 
+}
+
 
 
 
@@ -208,11 +284,28 @@ body.dark footer {
     background-color: #1f1f1f;
 }
 
-body.dark .card-section > div,
+
+
+body.dark .card-section>div,
 body.dark .filtros-section,
 body.dark #tabelaCSV {
     background-color: #1e1e1e;
     color: #eaeaea;
+}
+
+body.dark .card-section h2 {
+    padding: 10px;
+    border-radius: 0.5rem;
+    background-color: #181818;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+
+
+#pagination button:disabled {
+    background-color: var(--cinza-escuro);
+    color: #1f1f1f;
 }
 
 body.dark thead {
@@ -229,21 +322,40 @@ body.dark tbody tr:hover {
     color: #ffffff;
 }
 
+
+
+
 /* botão modo escuro */
 #toggle-theme {
     background-color: var(--branco);
     color: var(--azul);
-    border: none;
+    border: 1px solid transparent; 
     padding: 6px 12px;
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color .3s, color .3s, border-color .3s;
 }
 
-body.dark #toggle-theme {
-    background-color: #333;
-    color: #ffffff;
+
+#toggle-theme:hover {
+    background-color: var(--azul);
+    color: var(--branco);
+    border-color: var(--branco); 
 }
+
+body.dark #toggle-theme:hover {
+    background-color: var(--branco);
+    color: black;
+    border-color: var(--branco);
+}
+
+
+body.dark #toggle-theme:hover {
+    background-color: var(--branco);
+    color: black;
+}
+
 
 /* textos dos cards no modo escuro */
 body.dark .card-section h2 {
@@ -251,8 +363,14 @@ body.dark .card-section h2 {
 }
 
 body.dark .card-section p {
-    color: #6c7bff; /* azul mais claro pra destacar */
+    color: #6c7bff;
+    /* azul mais claro pra destacar */
 }
+
+body.dark .filtros-section div label {
+    color: var(--branco)
+}
+
 
 #termos-section {
     display: flex;
@@ -278,10 +396,32 @@ body.dark .link-prefeitura {
 }
 
 
-/* cabeçalho da tabela fixo */
-thead th {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background-color: var(--azul);
+/* cabeçalho da tabela fixo
+thead th {}
+
+ */
+
+@media (max-width: 1024px) {
+    .pai {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pai {
+        padding: 16px;
+    }
+
+    .card-section {
+        flex-direction: column;
+    }
+
+    .filtros-section {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .linha-vertical {
+        display: none;
+    }
 }
