@@ -1,5 +1,3 @@
-// ================= CONFIGURAÇÕES =================
-
 //quantidade de linhas por página
 const nLinhasPagina = 20;
 
@@ -18,8 +16,6 @@ let nomeColunas = [];
 //controle de ordenação
 let colunaOrdenada = null;
 let ordemAscendente = true;
-
-
 
 async function carregarCSV() {
     try {
@@ -66,8 +62,6 @@ async function carregarCSV() {
     }
 }
 
-
-
 //converte null e undefined em indefinido
 function normalizeValue(value) {
     if (!value || value.toLowerCase() === "null" || value.toLowerCase() === "undefined") {
@@ -75,8 +69,6 @@ function normalizeValue(value) {
     }
     return value;
 }
-
-
 
 function formatDate(value) {
     if (value === "Indefinido") return value;
@@ -90,22 +82,13 @@ function formatDate(value) {
     return value;
 }
 
-
-
 function aplicarFiltros() {
 
-    const ocultarIndefinidos =
-        document.getElementById("filtroValoresIndefinidos").checked;
-
-    const valorMin =
-        parseFloat(document.getElementById("filtroValorMinimo").value);
-
-    const valorMax =
-        parseFloat(document.getElementById("filtroValorMaximo").value);
-
-    const tipoFavorecido =
-        document.querySelector(".filtroCPF\\/CNPJ").value;
-
+const ocultarIndefinidos = document.getElementById("filtroValoresIndefinidos").checked;
+const valorMin = parseFloat(document.getElementById("filtroValorMinimo").value);
+const valorMax = parseFloat(document.getElementById("filtroValorMaximo").value);
+const tipoFavorecido = document.querySelector(".filtroCPF\\/CNPJ").value;
+    
     arrayFiltrado = arrayData.filter(row => {
 
         const valorIndex = nomeColunas.indexOf("Valor");
@@ -118,18 +101,16 @@ function aplicarFiltros() {
         const cpfCnpj = row[cpfCnpjIndex];
 
         if (ocultarIndefinidos && row.includes("Indefinido")) return false;
-
         if (!isNaN(valorMin) && (isNaN(valor) || valor < valorMin)) return false;
-
         if (!isNaN(valorMax) && (isNaN(valor) || valor > valorMax)) return false;
 
-        if (tipoFavorecido !== "AMBOS") {
-            if (tipoFavorecido === "CPF" && cpfCnpj?.length > 14) return false;
-            if (tipoFavorecido === "CNPJ" && cpfCnpj?.length <= 14) return false;
-        }
+    if (tipoFavorecido !== "AMBOS") {
+        if (tipoFavorecido === "CPF" && cpfCnpj?.length > 14) return false;
+        if (tipoFavorecido === "CNPJ" && cpfCnpj?.length <= 14) return false;
+    }
 
-        return true;
-    });
+    return true;
+});
 
     aplicarOrdenacao();
 
@@ -138,8 +119,6 @@ function aplicarFiltros() {
     updatePagination();
     atualizarCards();
 }
-
-
 
 function ordenarPorColuna(index) {
 
@@ -175,8 +154,6 @@ function aplicarOrdenacao() {
     });
 }
 
-
-
 function renderizarTabela() {
 
     const thead = document.querySelector("#tabelaCSV thead");
@@ -211,8 +188,6 @@ function renderizarTabela() {
     });
 }
 
-
-
 function updatePagination() {
     const totalPages = Math.ceil(arrayFiltrado.length / nLinhasPagina);
 
@@ -240,10 +215,7 @@ document.getElementById("prev").addEventListener("click", () => {
     }
 });
 
-
-
 function atualizarCards() {
-
     let totalGasto = 0;
     let totalAnulado = 0;
     let contadorValores = 0;
@@ -288,19 +260,10 @@ function atualizarCards() {
 
 
 
-document.getElementById("filtroValoresIndefinidos")
-    .addEventListener("change", aplicarFiltros);
-
-document.getElementById("filtroValorMinimo")
-    .addEventListener("input", aplicarFiltros);
-
-document.getElementById("filtroValorMaximo")
-    .addEventListener("input", aplicarFiltros);
-
-document.querySelector(".filtroCPF\\/CNPJ")
-    .addEventListener("change", aplicarFiltros);
-
-
+document.getElementById("filtroValoresIndefinidos").addEventListener("change", aplicarFiltros);
+document.getElementById("filtroValorMinimo").addEventListener("input", aplicarFiltros);
+document.getElementById("filtroValorMaximo").addEventListener("input", aplicarFiltros);
+document.querySelector(".filtroCPF\\/CNPJ").addEventListener("change", aplicarFiltros);
 
 carregarCSV();
 
