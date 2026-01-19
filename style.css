@@ -26,8 +26,6 @@ body {
         color 0.4s ease;
 }
 
-
-
 header,
 footer,
 .card-section h2,
@@ -91,16 +89,11 @@ header a:hover {
     color: var(--azul);
 }
 
-
-
-
 .nomes {
     gap: 2rem;
     display: flex;
     flex-direction: row;
 }
-
-
 
 #h1-principal {
     text-align: center;
@@ -118,18 +111,15 @@ header a:hover {
     gap: 20px;
 }
 
-
 .card-section {
     width: 100%;
 }
-
 
 .card-section {
     display: flex;
     gap: 1rem;
     justify-content: space-between;
 }
-
 
 .card-section>div {
     width: 100%;
@@ -154,8 +144,6 @@ header a:hover {
     font-weight: bold;
     color: var(--azul);
 }
-
-
 
 .filtros-section {
     background-color: var(--branco);
@@ -186,9 +174,6 @@ header a:hover {
     border: 1px solid var(--cinza-medio);
 }
 
-
-
-
 #tabelaCSV {
     width: 100%;
 
@@ -200,24 +185,11 @@ header a:hover {
 
 }
 
-
-
-
-
-
-
 .tabela-wrapper {
     border-radius: 20px;
     width: 100%;
     overflow-x: auto;
 }
-
-
-
-
-
-
-
 
 .linha-vertical {
     border-left: 2px solid var(--cinza-medio);
@@ -233,7 +205,6 @@ td {
     text-align: left;
     border-left: 1px solid rgba(0, 0, 0, 0.205);
 }
-
 
 th {
     cursor: pointer;
@@ -254,13 +225,11 @@ thead {
     color: var(--branco);
 }
 
+
+/*não usado*/
 thead th, tbody td{ 
      
 }
-
-
-
-
 
 #pagination {
     max-width: 1200px;
@@ -293,10 +262,6 @@ thead th, tbody td{
     border-color: var(--azul);
 }
 
-
-
-
-
 footer {
     background-color: var(--azul);
     color: var(--branco);
@@ -320,27 +285,16 @@ tbody tr:hover {
     background-color: #eef0ff;
 }
 
-
-
-
-
-
-
-
-/* ================= MODO ESCURO ================= */
-
+/*modo escuro*/
 body.dark {
     background-color: #121212;
     color: #eaeaea;
 }
 
-
 body.dark header,
 body.dark footer {
     background-color: #1f1f1f;
 }
-
-
 
 body.dark .card-section>div,
 body.dark .filtros-section,
@@ -357,8 +311,6 @@ body.dark .card-section h2 {
     margin-bottom: 8px;
 }
 
-
-
 body.dark #pagination button:disabled {
     background-color: var(--cinza-escuro);
     color: #1f1f1f;
@@ -368,12 +320,10 @@ body.dark thead {
     background-color: #2b2a8f;
 }
 
-
 body.dark thead th, body.dark tbody td{ 
     border-left: 1px solid rgba(255, 255, 255, 0.151); 
     border-bottom: 1px solid rgba(255, 255, 255, 0.151);
 }
-
 
 body.dark tr:nth-child(even) {
     background-color: #252525;
@@ -384,9 +334,6 @@ body.dark tbody tr:hover {
     background-color: #333333;
     color: #ffffff;
 }
-
-
-
 
 /* botão modo escuro */
 #toggle-theme {
@@ -403,7 +350,6 @@ body.dark tbody tr:hover {
     transition: background-color .3s, color .3s, border-color .3s;
 }
 
-
 #toggle-theme:hover {
     background-color: var(--azul);
     color: var(--branco);
@@ -416,12 +362,10 @@ body.dark #toggle-theme:hover {
     border-color: var(--branco);
 }
 
-
 body.dark #toggle-theme:hover {
     background-color: var(--branco);
     color: black;
 }
-
 
 /* textos dos cards no modo escuro */
 body.dark .card-section h2 {
@@ -436,7 +380,6 @@ body.dark .card-section p {
 body.dark .filtros-section div label {
     color: var(--branco)
 }
-
 
 #termos-section {
     display: flex;
@@ -461,16 +404,8 @@ body.dark .link-prefeitura {
     color: #bfc2ff;
 }
 
-
-
-
-
-
-
 /* cabeçalho da tabela fixo */
 thead th {}
-
-
 
 @media (max-width: 1024px) {
     .pai {
@@ -508,13 +443,6 @@ thead th {}
         gap: 20px;
     }
 }
-
-
-
-
-
-
-
 
 .moon-outline {
     fill: none;
